@@ -1,8 +1,6 @@
 # VimeoMe2
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vimeo_me2`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A very basic wrapper for the Vimeo API. OAuth2 is not included in the code. You can easily write your own OAuth2 workflow with a gem like [OUath2](https://github.com/intridea/oauth2). All you need is a Vimeo access token and easily make calls to their API through this gem.
 
 ## Installation
 
