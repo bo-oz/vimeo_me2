@@ -22,7 +22,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem consists of two classes that can access respectively a user or a video object from Vimeo. Using the gem starts with obtaining an access token from [vimeo.com](https://developer.vimeo.com). When calling the classes, put in the access token and access the various methods. For instance:
+
+```ruby
+# Access your own user object
+vimeo_user = VimeoMe2::User.new('12345hjhsjdshasd')
+
+# Access someones user object
+vimeo_user = VimeoMe2::User.new('12345hjhsjdshasd','username')
+
+# Get access to a video
+vimeo_video = VimeoMe2::User.new('12345hjhsjdshasd','196277011')
+
+# Get comments on the video
+vimeo_video.comments
+
+# Delete the video (if you have access to do that)
+vimeo_video.delete
+```
+
+At this moment the gem only returns the raw JSON response received from Vimeo. I do plan on extending this to also include a player embed method. But this is still work in progress.
+
+## TODO
+
+* Write tests
+* Include all parameters in the various API calls
+* Write methods for every Vimeo API endpoint
 
 ## Development
 
@@ -32,10 +57,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/vimeo_me2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/bo-oz/vimeo_me2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
