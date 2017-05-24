@@ -19,8 +19,8 @@ module VimeoMe2
         call = HTTParty.public_send(method, prefix_endpoint(endpoint), http_request)
         validate_response!(call)
         reset_request
-        return JSON.parse(call) if call.is_a? Hash
-        return call
+        return JSON.parse(call.parsed_response) unless call.parsed_response.is_a? Hash
+        return call.parsed_response
       end
 
       def set_token token
