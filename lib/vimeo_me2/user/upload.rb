@@ -29,7 +29,6 @@ module VimeoMe2
           add_header('content-length', @video.size.to_s)
           @video.rewind
           @body = @video.read(@video.size).to_s
-          byebug
           return make_http_request('put', endpoint)
         end
 
