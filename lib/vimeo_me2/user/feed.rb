@@ -3,8 +3,8 @@ module VimeoMe2
     module Feed
       # Get all the channels a user follows
       def view_all_videos_in_feed
-        check_authorization('private')
-        make_http_request('get', request_uri("/feed") )
+        @client.check_authorization('private')
+        @client.make_http_request('get', request_uri("/feed") )
       end
     end
   end

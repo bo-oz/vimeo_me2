@@ -4,8 +4,8 @@ module VimeoMe2
 
       # Get all user followers
       def get_all_followers
-        check_authorization
-        make_http_request('get', request_uri("/followers") )
+        @client.check_authorization
+        @client.make_http_request('get', request_uri("/followers") )
       end
 
     end

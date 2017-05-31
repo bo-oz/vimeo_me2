@@ -9,22 +9,33 @@ module VimeoMe2
       include VimeoMe2::Http::OAuth::Verify
 
       attr_reader :last_request
+      attr_accessor :body, :headers
 
       def initialize(token=nil)
         @token = token
         reset_request
       end
 
-      def make_http_request(method, endpoint)
+      def make_http_request(method, endpoint, allowed_status=200)
+        puts "#{method.upcase} #{endpoint} #{allowed_status}"
         call = HTTParty.public_send(method, prefix_endpoint(endpoint), http_request)
-        validate_response!(call)
+        @last_request = call
+        validate_response!(call, allowed_status)
         reset_request
-        return JSON.parse(call.parsed_response) unless call.parsed_response.is_a? Hash
-        return call.parsed_response
+        return nil if call.response.body.nil?
+        call.response.body.empty? ? call.response.body : JSON.parse(call.response.body)
       end
 
       def set_token token
         set_auth_header(token)
+      end
+
+      def add_header(key, value)
+        @headers[key] = value
+      end
+
+      def add_headers(additional)
+        @headers.merge!(additional) if additional.instance_of? Hash
       end
 
       private
@@ -37,14 +48,6 @@ module VimeoMe2
           @headers = {}
           @body = {}
           set_auth_header(@token) unless @token.nil?
-        end
-
-        def add_header(key, value)
-          @headers[key.to_sym] = value
-        end
-
-        def add_headers(additional)
-          @headers.merge!(additional) if additional.instance_of? Hash
         end
 
         def set_auth_header token
@@ -60,19 +63,19 @@ module VimeoMe2
         end
 
         # Raises an exception if the response does contain a +stat+ different from "ok"
-        def validate_response!(call)
+        def validate_response!(call, status)
           raise "empty call" unless call
-          @last_request = call
-          unless call.response.code.in? %w(200 201 204)
-            error = JSON.parse(call)
-            if error
-              raise RequestFailed, "#{call.response.code}: #{call.response.msg}, explanation: #{error['error']}"
+          puts "#{call.code} #{call.msg}"
+          puts ""
+          unless call.code.in? [status]
+            if call.response.body.nil? || call.response.body.empty?
+              raise RequestFailed.new(call.code, call.msg)
             else
-              raise RequestFailed, "Error: #{call.response.code}: #{call.response.msg}, no error message"
+              body = JSON.parse(call.response.body)
+              raise RequestFailed.new(call.code, call.msg, body['error'])
             end
           end
         end
     end
-
   end
 end
