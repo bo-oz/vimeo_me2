@@ -30,10 +30,19 @@ vimeo_user = VimeoMe2::User.new('12345hjhsjdshasd')
 vimeo_user = VimeoMe2::User.new('12345hjhsjdshasd','username')
 
 # Get access to a video
-vimeo_video = VimeoMe2::User.new('12345hjhsjdshasd','196277011')
+vimeo_video = VimeoMe2::Video.new('12345hjhsjdshasd','196277011')
 
 # Get comments on the video
 vimeo_video.comments
+
+# Get the name of the video
+vimeo_video.name
+
+# Set the name of the video
+vimeo_video.name = "New name"
+
+# Update the video
+vimeo_video.update
 
 # Delete the video (if you have access to do that)
 vimeo_video.delete
