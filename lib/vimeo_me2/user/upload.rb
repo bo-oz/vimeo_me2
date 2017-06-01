@@ -7,9 +7,8 @@ module VimeoMe2
       # @param [File] video A File that contains a valid video format
       def upload_video video
         @video = video
-        @client.check_authorization('upload')
-        check_file_format!
-        check_user_quota!
+        #check_file_format!
+        #check_user_quota!
         @ticket = get_upload_ticket
         uploaded_video = handle_upload
         change_name(uploaded_video)
@@ -32,24 +31,25 @@ module VimeoMe2
 
         # get an upload ticket which is neede for the upload
         def get_upload_ticket
-          @client.body[:type] = "streaming"
-          @client.make_http_request('post','/me/videos', 201)
+          body = {:type => "streaming"}
+          post('/videos', body:body, code:201)
         end
 
         # start the upload
         def start_upload
-          @client.add_header('Content-Type', @video.content_type)
-          @client.add_header('Content-Length', @video.size.to_s)
+          headers = {'Content-Type': @video.content_type}
+          headers['Content-Length'] = @video.size.to_s
           @video.rewind
-          @client.body = @video.read(@video.size).to_s
-          @client.make_http_request('put', @ticket['upload_link_secure'])
+          body = @video.read(@video.size).to_s
+          put(@ticket['upload_link_secure'], body:body, headers:headers)
         end
 
         # Verify the upload
         def verify_upload
-          @client.add_header('Content-Length', "0")
-          @client.add_header('Content-Range', 'bytes */*')
-          @client.make_http_request('put', @ticket['upload_link_secure'], 308)
+          headers = {}
+          headers['Content-Length'] = "0"
+          headers['Content-Range'] = 'bytes */*'
+          put(@ticket['upload_link_secure'], headers:headers, code:308)
           if @client.last_request.range.max.max == @video.size
             return true
           else
@@ -61,7 +61,7 @@ module VimeoMe2
         #
         # @param [String] complete_uri The complete uri to end upload
         def end_upload
-          @client.make_http_request('delete', @ticket['complete_uri'], 201)
+          delete("https://api.vimeo.com#{@ticket['complete_uri']}", code:201)
           return @client.last_request.headers['location']
         end
 

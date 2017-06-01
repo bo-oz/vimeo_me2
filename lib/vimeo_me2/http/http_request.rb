@@ -17,7 +17,7 @@ module VimeoMe2
       end
 
       def make_http_request(method, endpoint, allowed_status=200)
-        puts "#{method.upcase} #{endpoint} #{allowed_status}"
+        puts "#{method.upcase} #{prefix_endpoint(endpoint)} #{allowed_status}"
         call = HTTParty.public_send(method, prefix_endpoint(endpoint), http_request)
         @last_request = call
         validate_response!(call, allowed_status)
@@ -55,6 +55,7 @@ module VimeoMe2
         end
 
         def http_request
+          add_header('Content-Type', 'application/json') if @body.is_a? Hash
           return {headers:@headers, body:@body}
         end
 

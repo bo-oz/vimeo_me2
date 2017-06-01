@@ -11,9 +11,8 @@ require "user/likes"
 require "http/http_request"
 
 module VimeoMe2
-  class RequestFailed < StandardError; end
 
-  class User
+  class User < VimeoMe2::VimeoObject
     include VimeoMe2::UserMethods::Album
     include VimeoMe2::UserMethods::Upload
     include VimeoMe2::UserMethods::Category
@@ -24,23 +23,11 @@ module VimeoMe2
     include VimeoMe2::UserMethods::Groups
     include VimeoMe2::UserMethods::Likes
 
-    attr_accessor :video, :user
+    attr_reader :video, :user
 
     def initialize(token, user_id = nil)
-      @token = token
-      @client = VimeoMe2::Http::HttpRequest.new(token)
       @base_uri = user_id ? "/users/#{user_id}" : "/me"
-      @user = get_user
+      @user = super(token)
     end
-
-    private
-      def get_user
-        @client.make_http_request('get', request_uri)
-      end
-
-      def request_uri uri=nil
-        "#{@base_uri}#{uri}"
-      end
-
   end
 end
