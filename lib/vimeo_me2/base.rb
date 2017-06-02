@@ -21,28 +21,11 @@ module VimeoMe2
         @client.make_http_request(method, url, code)
       end
 
-      def get(url, **params)
-        request request_uri(url), params
-      end
-
-      def post(url, **params)
-        params[:method] = 'post'
-        request request_uri(url), params
-      end
-
-      def delete(url, **params)
-        params[:method] = 'delete'
-        request request_uri(url), params
-      end
-
-      def put(url, **params)
-        params[:method] = 'put'
-        request request_uri(url), params
-      end
-
-      def patch(url, **params)
-        params[:method] = 'patch'
-        request request_uri(url), params
+      ["get", "post", "delete", "put","patch"].each do |method|
+        define_method(method) do |url, **params|
+          params[:method] = "#{method}"
+          request request_uri(url), params
+        end
       end
 
       def request_uri uri=nil
