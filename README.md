@@ -31,8 +31,9 @@ vimeo.get('/me')
 
 # Make any post request, including a body, don't forget
 # to set the expected repsonse code
+# You can also set additional header
 body = "whatever"
-vimeo.post('/videos/12344', body:body, code:201)
+vimeo.post('/videos/12344', body:body, headers:{'Content-Type': 'video/mp4'}, code:201)
 
 # Or delete items
 vimeo.delete('/videos/12344', code:204)
