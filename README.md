@@ -43,7 +43,7 @@ vimeo_user.like_video 1234455
 At this moment uploading a video only works with a ActionDispatch::Http::UploadedFile object.
 
 ```ruby
-# Set-up a controller like this for instance:
+# Set-up a model like this for instance:
 
 class Videofile < ActiveRecord::Base
   attr_accessor :video_file
@@ -55,7 +55,8 @@ class Videofile < ActiveRecord::Base
     # in your OAuth2 token
     vimeo_client = VimeoMe2::User.new('685e9f79d51b522ca21fc91c4ec58063')
     # upload the video by passing the ActionDispatch::Http::UploadedFile
-    # to the upload_video() methofd
+    # to the upload_video() method. The data_url in this model, stores
+    # the location of the uploaded video on Vimeo.
     self.data_url = vimeo_client.upload_video(self.video_file)
     return true
   rescue VimeoMe2::RequestFailed => e
