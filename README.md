@@ -31,12 +31,26 @@ vimeo_user = VimeoMe2::User.new('12345hjhsjdshasd')
 
 # Access someones user object
 vimeo_user = VimeoMe2::User.new('12345hjhsjdshasd','username')
+```
 
-# Fetch all the likes of this user
+#### Like
+Get a list of the likes, like and unlike video's.
+
+```ruby
+# Fetch for the user
 vimeo_user.view_all_likes
 
 # Like a specific video
 vimeo_user.like_video 1234455
+
+# Check if a video is liked
+vimeo_user.check_if_liked 1234455 #returns true
+
+# Unlike the video
+vimeo_user.unlike_video 1234455
+
+# Check if a video is unliked
+vimeo_user.check_if_liked 1234455 #returns false
 
 ```
 ### Uploading a video

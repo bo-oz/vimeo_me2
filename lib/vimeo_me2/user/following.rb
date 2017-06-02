@@ -11,11 +11,11 @@ module VimeoMe2
       #
       # @param [String] users String of user URIs to follow
       # @param [Array] users Array of user URIs to follow
-      #def follow_users users
-      #  body = {}
-      #  body[:users] = users.is_a?(Array) ? users.join(',') : users
-      #  post("/following", body:body)
-      #end
+      def follow_users users
+        body = {}
+        body[:users] = users.is_a?(Array) ? users.join(',') : users
+        post("/following", body:body)
+      end
 
       # Check if user is following a specific user
       #
