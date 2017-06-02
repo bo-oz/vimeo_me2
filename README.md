@@ -7,20 +7,37 @@ A very basic wrapper for the Vimeo API. OAuth2 is not included in the code. You 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'vimeo_me2'
+gem 'vimeo_me2', :git => "https://github.com/bo-oz/vimeo_me2.git"
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install vimeo_me2
 
 ## Usage
 
 This gem consists of two classes that can access respectively a user or a video object from Vimeo. Using the gem starts with obtaining an access token from [vimeo.com](https://developer.vimeo.com). When calling the classes, put in the access token and access the various methods.
+
+### Making any call to Vimeo
+Use utility methods to make any call against Vimeo. You can see the full list of eindpoints in the Vimeo documentation on [vimeo.com](https://developer.vimeo.com).
+
+```ruby
+# Set-up the basis for making calls to Vimeo
+vimeo = VimeoMe2::VimeoObject.new('12345hjhsjdshasd')
+
+# Make any get request, by providing only the API endpoint
+vimeo.get('/me')
+
+# Make any post request, including a body, don't forget
+# to set the expected repsonse code
+body = "whatever"
+vimeo.post('/videos/12344', body:body, code:201)
+
+# Or delete items
+vimeo.delete('/videos/12344', code:204)
+
+```
 
 ### Accessing a User
 Take a look at the files under /lib/vimeo_me2/user/ for available methods.
