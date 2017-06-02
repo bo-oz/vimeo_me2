@@ -108,7 +108,7 @@ vimeo_video.name = "New name"
 vimeo_video.update
 
 # Delete the video (if you have access to do that)
-vimeo_video.delete
+vimeo_video.destroy
 ```
 
 At this moment the gem only returns the raw JSON response received from Vimeo. I do plan on extending this to also include a player embed method. But this is still work in progress.

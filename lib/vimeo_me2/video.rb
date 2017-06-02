@@ -14,13 +14,12 @@ module VimeoMe2
     end
 
     def load video_id
-      set_uri video_id
-      @video = get_object
+      @video = initialize(@token, video_id)
     end
 
     def reload
       raise "No video selected, use load first" if @base_uri.nil?
-      @video = get_object
+      @video = initialize(@token, @video_id)
     end
 
     def name= name
@@ -32,18 +31,19 @@ module VimeoMe2
     end
 
     def update
-      @client.body = @video
-      @video = @client.make_http_request('patch', request_uri)
+      body = @video
+      patch(nil, body:body)
     end
 
-    def delete
-      @video = @client.make_http_request('delete', request_uri, 204)
-      @base_uri = nil
+    def destroy
+      @video = delete(nil, code: 204)
+      @base_uri, @video_id = nil
     end
 
     private
       def set_uri video_id
-        @base_uri = /videos?/.match(video_id) ? video_id : "/videos/#{video_id}"
+        @video_id = video_id
+        @base_uri = /videos?/.match(video_id.to_s) ? video_id : "/videos/#{video_id.to_s}"
       end
   end
 end

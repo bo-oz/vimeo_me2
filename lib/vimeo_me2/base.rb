@@ -10,7 +10,7 @@ module VimeoMe2
       get_object
     end
 
-  #  private
+    private
       def get_object
         request
       end
