@@ -23,6 +23,8 @@ module VimeoMe2
       def check_if_following_user user_id
         get("/following/#{user_id}", code:204)
         return true
+      rescue VimeoMe2::RequestFailed
+        return false
       end
 
       # Follow a specific user

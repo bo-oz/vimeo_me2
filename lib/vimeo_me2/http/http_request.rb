@@ -67,7 +67,8 @@ module VimeoMe2
           raise "empty call" unless call
           puts "#{call.code} #{call.msg}"
           puts ""
-          unless call.code.in? [status]
+          status = [status] unless status.is_a? Array
+          unless call.code.in? status
             if call.response.body.nil? || call.response.body.empty?
               raise RequestFailed.new(call.code, call.msg)
             else

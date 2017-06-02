@@ -20,7 +20,7 @@ module VimeoMe2
         body = {}
         body['name'] = name
         body['description'] = description
-        post("/albums", body: body )
+        post("/albums", body: body, code: 201 )
       end
 
       # Edit an album
@@ -36,7 +36,7 @@ module VimeoMe2
       # Delete one album by it's ID
       # @param [String] album_id The Id of the album.
       def delete_album album_id
-        delete("/albums/#{album_id}")
+        delete("/albums/#{album_id}", code: 204)
       end
 
       # Get video's of album
@@ -50,6 +50,7 @@ module VimeoMe2
       # @param [String] videos String of video URIs seperated by comma
       # @param [Array] videos Array of video URIs
       def add_videos_to_album album_id, videos
+        body = {}
         body['videos'] = videos if videos.is_a? String
         body['videos'] = videos.join(',') if videos.is_a? Array
         put("/albums/#{album_id}", body:body )
@@ -59,21 +60,24 @@ module VimeoMe2
       # @param [String] album_id The Id of the album.
       # @param [String] video_id The Id of the video.
       def add_video_to_album album_id, video_id
-        put("/albums/#{album_id}/videos/#{video_id}")
+        put("/albums/#{album_id}/videos/#{video_id}", code: 204)
       end
 
       # Check if video exists in an album
       # @param [String] album_id The Id of the album.
       # @param [String] video_id The Id of the video.
       def check_video_in_album album_id, video_id
-        get("/albums/#{album_id}/videos/#{video_id}" )
+        get("/albums/#{album_id}/videos/#{video_id}", code:204)
+        return true
+      rescue VimeoMe2::RequestFailed
+        return false
       end
 
       # Remove video from an album
       # @param [String] album_id The Id of the album.
       # @param [String] video_id The Id of the video.
       def remove_video_from_album album_id, video_id
-        delete("/albums/#{album_id}/videos/#{video_id}")
+        delete("/albums/#{album_id}/videos/#{video_id}", code: 204)
       end
     end
   end
