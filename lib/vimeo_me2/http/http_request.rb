@@ -55,7 +55,6 @@ module VimeoMe2
         end
 
         def http_request
-          add_header('Content-Type', 'application/json') if @body.is_a? Hash
           return {headers:@headers, body:@body}
         end
 
