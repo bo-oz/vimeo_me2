@@ -21,8 +21,7 @@ module VimeoMe2
       end
 
       def delete_comment comment_id
-        @client.check_authorization('delete')
-        @client.make_http_request('delete', request_uri("/comments/#{comment_id}"))
+        delete("/comments/#{comment_id}")
       end
 
     end
