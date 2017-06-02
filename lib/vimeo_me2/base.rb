@@ -10,6 +10,13 @@ module VimeoMe2
       get_object
     end
 
+    ["get", "post", "delete", "put","patch"].each do |method|
+      define_method(method) do |url, **params|
+        params[:method] = "#{method}"
+        request request_uri(url), params
+      end
+    end
+
     private
       def get_object
         request
@@ -19,13 +26,6 @@ module VimeoMe2
         @client.body = body
         @client.add_headers(headers)
         @client.make_http_request(method, url, code)
-      end
-
-      ["get", "post", "delete", "put","patch"].each do |method|
-        define_method(method) do |url, **params|
-          params[:method] = "#{method}"
-          request request_uri(url), params
-        end
       end
 
       def request_uri uri=nil
