@@ -76,6 +76,11 @@ Take a look at the files under /lib/vimeo_me2/video/ for available methods.
 vimeo_video = VimeoMe2::Video.new('12345hjhsjdshasd','196277011')
 vimeo_video = VimeoMe2::Video.new('12345hjhsjdshasd','/videos/196277011')
 
+# Or with an uploaded video like with the model above
+#in the previous code fragment
+videofile = Videofile.last
+vimeo_video = VimeoMe2::Video.new('12345hjhsjdshasd',videofile.data_url)
+
 # Get comments on the video
 vimeo_video.comments
 
