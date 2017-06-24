@@ -85,7 +85,7 @@ class Videofile < ActiveRecord::Base
   def upload_to_vimeo
     # connect to Vimeo as your own user, this requires upload scope
     # in your OAuth2 token
-    vimeo_client = VimeoMe2::User.new('685e9f79d51b522ca21fc91c4ec58063')
+    vimeo_client = VimeoMe2::User.new('12345hjhsjdshasd')
     # upload the video by passing the ActionDispatch::Http::UploadedFile
     # to the upload_video() method. The data_url in this model, stores
     # the location of the uploaded video on Vimeo.
