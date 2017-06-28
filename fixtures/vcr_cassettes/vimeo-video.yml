@@ -50,7 +50,7 @@ http_interactions:
       X-Cache:
       - MISS, MISS
       X-Cache-Hits:
-      - 0, 0
+      - 0, 0 
       X-Timer:
       - S1498672106.567424,VS0,VE142
       Vary:
