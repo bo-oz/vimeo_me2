@@ -1,5 +1,7 @@
 # VimeoMe2
 
+[![Travis badge](https://travis-ci.org/bo-oz/vimeo_me2.svg?branch=master)](https://travis-ci.org/bo-oz/vimeo_me2)
+
 A very basic wrapper for the Vimeo API. OAuth2 is not included in the code. You can easily write your own OAuth2 workflow with a gem like [OAuth2](https://github.com/intridea/oauth2). All you need is a Vimeo access token and easily make calls to their API through this gem.
 
 ## Installation
