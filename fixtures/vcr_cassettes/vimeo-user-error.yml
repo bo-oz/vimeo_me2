@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.vimeo.com/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer error-vimeo-token
+  response:
+    status:
+      code: 401
+      message: Authorization Required
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/vnd.vimeo.error+json
+      Cache-Control:
+      - no-cache, max-age=315360000
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Www-Authenticate:
+      - Bearer error="invalid_token"
+      Expires:
+      - Sat, 26 Jun 2027 17:48:25 GMT
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      Fastly-Debug-Digest:
+      - 531aae54deb58da92694b00e6e57afc3f91eafa656f2a974be6d34f493c05e8b
+      Content-Length:
+      - '64'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 28 Jun 2017 17:48:25 GMT
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2135-IAD, cache-ams4142-AMS
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1498672105.359469,VS0,VE117
+      Vary:
+      - Accept,Vimeo-Client-Id,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"error":"You must provide a valid authenticated access token."}'
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 17:48:23 GMT
+recorded_with: VCR 3.0.3

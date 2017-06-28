@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.vimeo.com/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer xxx
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/vnd.vimeo.user+json
+      Cache-Control:
+      - no-cache, max-age=315360000
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '76'
+      X-Ratelimit-Reset:
+      - '2017-06-28T18:03:24+00:00'
+      Expires:
+      - Sat, 26 Jun 2027 17:48:24 GMT
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      Fastly-Debug-Digest:
+      - 531aae54deb58da92694b00e6e57afc3f91eafa656f2a974be6d34f493c05e8b
+      Content-Length:
+      - '2255'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 28 Jun 2017 17:48:24 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2126-IAD, cache-ams4430-AMS
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1498672105.729643,VS0,VE118
+      Vary:
+      - Accept,Vimeo-Client-Id,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"uri":"/users/59525702","name":"bo-oz","link":"https://vimeo.com/user59525702","location":"Lisse","bio":null,"created_time":"2016-11-25T08:25:49+00:00","account":"basic","pictures":{"uri":"/users/59525702/pictures/16670116","active":true,"type":"custom","sizes":[{"width":30,"height":30,"link":"https://i.vimeocdn.com/portrait/16670116_30x30"},{"width":75,"height":75,"link":"https://i.vimeocdn.com/portrait/16670116_75x75"},{"width":100,"height":100,"link":"https://i.vimeocdn.com/portrait/16670116_100x100"},{"width":300,"height":300,"link":"https://i.vimeocdn.com/portrait/16670116_300x300"}],"resource_key":"6c034bedf4ab16a5448b37256b2521d04859ed4f"},"websites":[],"metadata":{"connections":{"activities":{"uri":"/users/59525702/activities","options":["GET"]},"albums":{"uri":"/users/59525702/albums","options":["GET"],"total":3},"appearances":{"uri":"/users/59525702/appearances","options":["GET"],"total":0},"categories":{"uri":"/users/59525702/categories","options":["GET"],"total":1},"channels":{"uri":"/users/59525702/channels","options":["GET"],"total":0},"feed":{"uri":"/users/59525702/feed","options":["GET"]},"followers":{"uri":"/users/59525702/followers","options":["GET"],"total":0},"following":{"uri":"/users/59525702/following","options":["GET"],"total":0},"groups":{"uri":"/users/59525702/groups","options":["GET"],"total":1},"likes":{"uri":"/users/59525702/likes","options":["GET"],"total":1},"moderated_channels":{"uri":"/users/59525702/channels?filter=moderated","options":["GET"],"total":0},"portfolios":{"uri":"/users/59525702/portfolios","options":["GET"],"total":0},"videos":{"uri":"/users/59525702/videos","options":["GET"],"total":24},"watchlater":{"uri":"/users/59525702/watchlater","options":["GET"],"total":1},"shared":{"uri":"/users/59525702/shared/videos","options":["GET"],"total":0},"pictures":{"uri":"/users/59525702/pictures","options":["GET","POST"],"total":1},"watched_videos":{"uri":"/me/watched/videos","options":["GET"],"total":16}}},"preferences":{"videos":{"privacy":"anybody"}},"content_filter":["language","drugs","violence","nudity","safe","unrated"],"upload_quota":{"space":{"free":524288000,"max":524288000,"used":0},"quota":{"hd":true,"sd":true}},"resource_key":"501e23829d674b41de7e7d431743accd2c552cd8"}'
+    http_version:
+  recorded_at: Wed, 28 Jun 2017 17:48:23 GMT
+- request:
+    method: get
+    uri: https://api.vimeo.com/users/staff
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 2081091e83977725227e878c4127ba39
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/vnd.vimeo.user+json
+      Cache-Control:
+      - no-cache, max-age=315360000
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '75'
+      X-Ratelimit-Reset:
+      - '2017-06-28T18:03:24+00:00'
+      Expires:
+      - Sat, 26 Jun 2027 17:48:24 GMT
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      Fastly-Debug-Digest:
+      - 202f0ded0adc4bda72056592cbb3326dc862727a95fdf35ab06928298f6a1410
+      Content-Length:
+      - '2604'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 28 Jun 2017 17:48:25 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2145-IAD, cache-ams4443-AMS
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1498672105.926187,VS0,VE178
+      Vary:
+      - Accept,Vimeo-Client-Id,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"uri":"/users/152184","name":"Vimeo Staff","link":"https://vimeo.com/staff","location":"New
+        York City","bio":"This is where you will find videos and news updates from
+        the staff.\n             \nPlease note that we cannot answer help messages
+        sent to this account. If you need help using Vimeo please see our awesome
+        help page here, vimeo.com/help\n\nBig hugs and a high five,\n\nThe Vimeo Staff","created_time":"2007-01-18T16:40:11+00:00","account":"business","pictures":{"uri":"/users/152184/pictures/9934446","active":true,"type":"custom","sizes":[{"width":30,"height":30,"link":"https://i.vimeocdn.com/portrait/9934446_30x30"},{"width":75,"height":75,"link":"https://i.vimeocdn.com/portrait/9934446_75x75"},{"width":100,"height":100,"link":"https://i.vimeocdn.com/portrait/9934446_100x100"},{"width":300,"height":300,"link":"https://i.vimeocdn.com/portrait/9934446_300x300"}],"resource_key":"93fe63496f29d89092b014cd00838e8f3bfa3d3b"},"websites":[{"name":"https://twitter.com/vimeo","link":"https://twitter.com/vimeo","description":null},{"name":"https://www.facebook.com/Vimeo/","link":"https://www.facebook.com/Vimeo/","description":null},{"name":"https://www.instagram.com/vimeo/","link":"https://www.instagram.com/vimeo/","description":null},{"name":"http://vimeo.tumblr.com/","link":"http://vimeo.tumblr.com/","description":null}],"metadata":{"connections":{"activities":{"uri":"/users/152184/activities","options":["GET"]},"albums":{"uri":"/users/152184/albums","options":["GET"],"total":75},"appearances":{"uri":"/users/152184/appearances","options":["GET"],"total":25},"channels":{"uri":"/users/152184/channels","options":["GET"],"total":10},"feed":{"uri":"/users/152184/feed","options":["GET"]},"followers":{"uri":"/users/152184/followers","options":["GET"],"total":17976},"following":{"uri":"/users/152184/following","options":["GET"],"total":111},"groups":{"uri":"/users/152184/groups","options":["GET"],"total":5},"likes":{"uri":"/users/152184/likes","options":["GET"],"total":1059},"moderated_channels":{"uri":"/users/152184/channels?filter=moderated","options":["GET"],"total":6},"portfolios":{"uri":"/users/152184/portfolios","options":["GET"],"total":3},"videos":{"uri":"/users/152184/videos","options":["GET"],"total":130},"shared":{"uri":"/users/152184/shared/videos","options":["GET"],"total":2334},"pictures":{"uri":"/users/152184/pictures","options":["GET","POST"],"total":1}},"interactions":{"follow":{"added":false,"added_time":null,"uri":"/users/59525702/following/152184"}}},"resource_key":"5276e2f950af373f253ad45ebd87f1ff246403dc","preferences":{"videos":{"privacy":null}}}'
+    http_version:
+  recorded_at: Wed, 28 Jun 2017 17:48:23 GMT
+recorded_with: VCR 3.0.3

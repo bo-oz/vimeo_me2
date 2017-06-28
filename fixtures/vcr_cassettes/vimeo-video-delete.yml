@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.vimeo.com/videos/219661734
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 2081091e83977725227e878c4127ba39
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - text/html; charset=UTF-8
+      Cache-Control:
+      - no-cache, max-age=315360000
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '250'
+      X-Ratelimit-Remaining:
+      - '176'
+      X-Ratelimit-Reset:
+      - '2017-06-28T18:03:27+00:00'
+      Expires:
+      - Sat, 26 Jun 2027 17:48:27 GMT
+      Accept-Ranges:
+      - bytes
+      - bytes
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      Fastly-Debug-Digest:
+      - e7878b0741189356e6584b269565771f3554ea038f9eb442ee5720f79c37bfe5
+      Date:
+      - Wed, 28 Jun 2017 17:48:27 GMT
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2140-IAD, cache-ams4442-AMS
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1498672107.118870,VS0,VE169
+      Vary:
+      - Accept,Vimeo-Client-Id,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 17:48:25 GMT
+recorded_with: VCR 3.0.3

@@ -68,7 +68,7 @@ module VimeoMe2
           puts "#{call.code} #{call.msg}"
           puts ""
           status = [status] unless status.is_a? Array
-          unless call.code.in? status
+          unless status.include? call.code
             if call.response.body.nil? || call.response.body.empty?
               raise RequestFailed.new(call.code, call.msg)
             else

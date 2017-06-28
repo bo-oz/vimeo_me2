@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://api.vimeo.com/videos/219689930
+    body:
+      encoding: UTF-8
+      string: uri=%2Fvideos%2F219689930&name=new%20name&description=&link=https%3A%2F%2Fvimeo.com%2F219689930&duration=2&width=320&language=&height=240&embed[uri]=&embed[html]=%3Ciframe%20src%3D%22https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F219689930%3Fbadge%3D0%26autopause%3D0%26player_id%3D0%22%20width%3D%22320%22%20height%3D%22240%22%20frameborder%3D%220%22%20title%3D%22new%20name%22%20webkitallowfullscreen%20mozallowfullscreen%20allowfullscreen%3E%3C%2Fiframe%3E&embed[playbar]=true&embed[volume]=true&embed[color]=00adef&embed[buttons][like]=true&embed[buttons][watchlater]=true&embed[buttons][share]=true&embed[buttons][embed]=true&embed[buttons][hd]=false&embed[buttons][fullscreen]=true&embed[buttons][scaling]=true&embed[logos][vimeo]=true&embed[title][name]=user&embed[title][owner]=user&embed[title][portrait]=user&embed[logos][custom][active]=false&embed[logos][custom][link]=&embed[logos][custom][sticky]=false&created_time=2017-05-31T14%3A14%3A41%2B00%3A00&modified_time=2017-06-28T17%3A38%3A12%2B00%3A00&release_time=2017-05-31T14%3A14%3A41%2B00%3A00&content_rating[]=unrated&license=&privacy[view]=anybody&privacy[embed]=public&privacy[download]=true&privacy[add]=true&privacy[comments]=anybody&pictures=&tags[]=&stats[plays]=0&metadata[connections][related]=&metadata[connections][comments][uri]=%2Fvideos%2F219689930%2Fcomments&metadata[connections][comments][options][]=GET&metadata[connections][comments][options][]=POST&metadata[connections][comments][total]=0&metadata[connections][credits][uri]=%2Fvideos%2F219689930%2Fcredits&metadata[connections][credits][options][]=GET&metadata[connections][credits][options][]=POST&metadata[connections][credits][total]=1&metadata[connections][likes][uri]=%2Fvideos%2F219689930%2Flikes&metadata[connections][likes][options][]=GET&metadata[connections][likes][total]=0&metadata[connections][pictures][uri]=%2Fvideos%2F219689930%2Fpictures&metadata[connections][pictures][options][]=GET&metadata[connections][pictures][options][]=POST&metadata[connections][pictures][total]=0&metadata[connections][texttracks][uri]=%2Fvideos%2F219689930%2Ftexttracks&metadata[connections][texttracks][options][]=GET&metadata[connections][texttracks][options][]=POST&metadata[connections][texttracks][total]=0&metadata[interactions][watchlater][uri]=%2Fusers%2F59525702%2Fwatchlater%2F219689930&metadata[interactions][watchlater][options][]=GET&metadata[interactions][watchlater][options][]=PUT&metadata[interactions][watchlater][options][]=DELETE&metadata[interactions][watchlater][added]=false&metadata[interactions][watchlater][added_time]=&user[uri]=%2Fusers%2F59525702&user[name]=bo-oz&user[link]=https%3A%2F%2Fvimeo.com%2Fuser59525702&user[location]=Lisse&user[bio]=&user[created_time]=2016-11-25T08%3A25%3A49%2B00%3A00&user[account]=basic&user[websites][]=&user[content_filter][]=language&user[content_filter][]=drugs&user[content_filter][]=violence&user[content_filter][]=nudity&user[content_filter][]=safe&user[content_filter][]=unrated&user[resource_key]=501e23829d674b41de7e7d431743accd2c552cd8&user[pictures][uri]=%2Fusers%2F59525702%2Fpictures%2F16670116&user[pictures][active]=true&user[pictures][type]=custom&user[pictures][sizes][][width]=30&user[pictures][sizes][][height]=30&user[pictures][sizes][][link]=https%3A%2F%2Fi.vimeocdn.com%2Fportrait%2F16670116_30x30&user[pictures][sizes][][width]=75&user[pictures][sizes][][height]=75&user[pictures][sizes][][link]=https%3A%2F%2Fi.vimeocdn.com%2Fportrait%2F16670116_75x75&user[pictures][sizes][][width]=100&user[pictures][sizes][][height]=100&user[pictures][sizes][][link]=https%3A%2F%2Fi.vimeocdn.com%2Fportrait%2F16670116_100x100&user[pictures][sizes][][width]=300&user[pictures][sizes][][height]=300&user[pictures][sizes][][link]=https%3A%2F%2Fi.vimeocdn.com%2Fportrait%2F16670116_300x300&user[pictures][resource_key]=6c034bedf4ab16a5448b37256b2521d04859ed4f&user[preferences][videos][privacy]=anybody&user[upload_quota][space][free]=524288000&user[upload_quota][space][max]=524288000&user[upload_quota][space][used]=0&user[upload_quota][quota][hd]=true&user[upload_quota][quota][sd]=true&user[metadata][connections][activities][uri]=%2Fusers%2F59525702%2Factivities&user[metadata][connections][activities][options][]=GET&user[metadata][connections][albums][uri]=%2Fusers%2F59525702%2Falbums&user[metadata][connections][albums][options][]=GET&user[metadata][connections][albums][total]=3&user[metadata][connections][appearances][uri]=%2Fusers%2F59525702%2Fappearances&user[metadata][connections][appearances][options][]=GET&user[metadata][connections][appearances][total]=0&user[metadata][connections][categories][uri]=%2Fusers%2F59525702%2Fcategories&user[metadata][connections][categories][options][]=GET&user[metadata][connections][categories][total]=1&user[metadata][connections][channels][uri]=%2Fusers%2F59525702%2Fchannels&user[metadata][connections][channels][options][]=GET&user[metadata][connections][channels][total]=0&user[metadata][connections][feed][uri]=%2Fusers%2F59525702%2Ffeed&user[metadata][connections][feed][options][]=GET&user[metadata][connections][followers][uri]=%2Fusers%2F59525702%2Ffollowers&user[metadata][connections][followers][options][]=GET&user[metadata][connections][followers][total]=0&user[metadata][connections][following][uri]=%2Fusers%2F59525702%2Ffollowing&user[metadata][connections][following][options][]=GET&user[metadata][connections][following][total]=0&user[metadata][connections][groups][uri]=%2Fusers%2F59525702%2Fgroups&user[metadata][connections][groups][options][]=GET&user[metadata][connections][groups][total]=1&user[metadata][connections][likes][uri]=%2Fusers%2F59525702%2Flikes&user[metadata][connections][likes][options][]=GET&user[metadata][connections][likes][total]=1&user[metadata][connections][moderated_channels][uri]=%2Fusers%2F59525702%2Fchannels%3Ffilter%3Dmoderated&user[metadata][connections][moderated_channels][options][]=GET&user[metadata][connections][moderated_channels][total]=0&user[metadata][connections][portfolios][uri]=%2Fusers%2F59525702%2Fportfolios&user[metadata][connections][portfolios][options][]=GET&user[metadata][connections][portfolios][total]=0&user[metadata][connections][videos][uri]=%2Fusers%2F59525702%2Fvideos&user[metadata][connections][videos][options][]=GET&user[metadata][connections][videos][total]=24&user[metadata][connections][watchlater][uri]=%2Fusers%2F59525702%2Fwatchlater&user[metadata][connections][watchlater][options][]=GET&user[metadata][connections][watchlater][total]=1&user[metadata][connections][shared][uri]=%2Fusers%2F59525702%2Fshared%2Fvideos&user[metadata][connections][shared][options][]=GET&user[metadata][connections][shared][total]=0&user[metadata][connections][pictures][uri]=%2Fusers%2F59525702%2Fpictures&user[metadata][connections][pictures][options][]=GET&user[metadata][connections][pictures][options][]=POST&user[metadata][connections][pictures][total]=1&user[metadata][connections][watched_videos][uri]=%2Fme%2Fwatched%2Fvideos&user[metadata][connections][watched_videos][options][]=GET&user[metadata][connections][watched_videos][total]=16&app[name]=Test%20for%20student%20app&app[uri]=%2Fapps%2F93887&status=available&resource_key=816f52e9801549dcda38f637b61d53af76a5fbac&embed_presets=
+    headers:
+      Authorization:
+      - Bearer 2081091e83977725227e878c4127ba39
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/vnd.vimeo.video+json
+      Cache-Control:
+      - no-cache, max-age=315360000
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '71'
+      X-Ratelimit-Reset:
+      - '2017-06-28T18:03:26+00:00'
+      Expires:
+      - Sat, 26 Jun 2027 17:48:26 GMT
+      Accept-Ranges:
+      - bytes
+      - bytes
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      Fastly-Debug-Digest:
+      - 38704e634a0fb25292dd17b3bd033e6a7793b7ab598e279fe3ce1674ae07aef9
+      Content-Length:
+      - '4051'
+      Date:
+      - Wed, 28 Jun 2017 17:48:26 GMT
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2127-IAD, cache-ams4447-AMS
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1498672107.783921,VS0,VE174
+      Vary:
+      - Accept,Vimeo-Client-Id,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"uri":"/videos/219689930","name":"new name","description":null,"link":"https://vimeo.com/219689930","duration":2,"width":320,"language":null,"height":240,"embed":{"uri":null,"html":"<iframe
+        src=\"https://player.vimeo.com/video/219689930?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0\"
+        width=\"320\" height=\"240\" frameborder=\"0\" title=\"new name\" webkitallowfullscreen
+        mozallowfullscreen allowfullscreen></iframe>","buttons":{"like":true,"watchlater":true,"share":true,"embed":true,"hd":false,"fullscreen":true,"scaling":true},"logos":{"vimeo":true,"custom":{"active":false,"link":null,"sticky":false}},"title":{"name":"user","owner":"user","portrait":"user"},"playbar":true,"volume":true,"color":"00adef"},"created_time":"2017-05-31T14:14:41+00:00","modified_time":"2017-06-28T17:38:12+00:00","release_time":"2017-05-31T14:14:41+00:00","content_rating":["unrated"],"license":null,"privacy":{"view":"anybody","embed":"public","download":true,"add":true,"comments":"anybody"},"pictures":null,"tags":[],"stats":{"plays":0},"metadata":{"connections":{"comments":{"uri":"/videos/219689930/comments","options":["GET","POST"],"total":0},"credits":{"uri":"/videos/219689930/credits","options":["GET","POST"],"total":1},"likes":{"uri":"/videos/219689930/likes","options":["GET"],"total":0},"pictures":{"uri":"/videos/219689930/pictures","options":["GET","POST"],"total":0},"texttracks":{"uri":"/videos/219689930/texttracks","options":["GET","POST"],"total":0},"related":null},"interactions":{"watchlater":{"uri":"/users/59525702/watchlater/219689930","options":["GET","PUT","DELETE"],"added":false,"added_time":null}}},"user":{"uri":"/users/59525702","name":"bo-oz","link":"https://vimeo.com/user59525702","location":"Lisse","bio":null,"created_time":"2016-11-25T08:25:49+00:00","account":"basic","pictures":{"uri":"/users/59525702/pictures/16670116","active":true,"type":"custom","sizes":[{"width":30,"height":30,"link":"https://i.vimeocdn.com/portrait/16670116_30x30"},{"width":75,"height":75,"link":"https://i.vimeocdn.com/portrait/16670116_75x75"},{"width":100,"height":100,"link":"https://i.vimeocdn.com/portrait/16670116_100x100"},{"width":300,"height":300,"link":"https://i.vimeocdn.com/portrait/16670116_300x300"}],"resource_key":"6c034bedf4ab16a5448b37256b2521d04859ed4f"},"websites":[],"metadata":{"connections":{"activities":{"uri":"/users/59525702/activities","options":["GET"]},"albums":{"uri":"/users/59525702/albums","options":["GET"],"total":3},"appearances":{"uri":"/users/59525702/appearances","options":["GET"],"total":0},"categories":{"uri":"/users/59525702/categories","options":["GET"],"total":1},"channels":{"uri":"/users/59525702/channels","options":["GET"],"total":0},"feed":{"uri":"/users/59525702/feed","options":["GET"]},"followers":{"uri":"/users/59525702/followers","options":["GET"],"total":0},"following":{"uri":"/users/59525702/following","options":["GET"],"total":0},"groups":{"uri":"/users/59525702/groups","options":["GET"],"total":1},"likes":{"uri":"/users/59525702/likes","options":["GET"],"total":1},"moderated_channels":{"uri":"/users/59525702/channels?filter=moderated","options":["GET"],"total":0},"portfolios":{"uri":"/users/59525702/portfolios","options":["GET"],"total":0},"videos":{"uri":"/users/59525702/videos","options":["GET"],"total":24},"watchlater":{"uri":"/users/59525702/watchlater","options":["GET"],"total":1},"shared":{"uri":"/users/59525702/shared/videos","options":["GET"],"total":0},"pictures":{"uri":"/users/59525702/pictures","options":["GET","POST"],"total":1},"watched_videos":{"uri":"/me/watched/videos","options":["GET"],"total":16}}},"preferences":{"videos":{"privacy":"anybody"}},"content_filter":["language","drugs","violence","nudity","safe","unrated"],"upload_quota":{"space":{"free":524288000,"max":524288000,"used":0},"quota":{"hd":true,"sd":true}},"resource_key":"501e23829d674b41de7e7d431743accd2c552cd8"},"app":{"name":"Test
+        for student app","uri":"/apps/93887"},"status":"available","resource_key":"816f52e9801549dcda38f637b61d53af76a5fbac","embed_presets":null}'
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 17:48:25 GMT
+recorded_with: VCR 3.0.3
