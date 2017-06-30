@@ -32,7 +32,7 @@ module VimeoMe2
 
     def update
       body = @video
-      patch(nil, body:body)
+      patch(nil, body:body, code:[200,204])
     end
 
     def destroy
