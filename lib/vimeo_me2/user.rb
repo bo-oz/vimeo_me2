@@ -8,6 +8,7 @@ require "user/followers"
 require "user/following"
 require "user/groups"
 require "user/likes"
+require "user/videos"
 require "http/http_request"
 
 module VimeoMe2
@@ -22,6 +23,7 @@ module VimeoMe2
     include VimeoMe2::UserMethods::Following
     include VimeoMe2::UserMethods::Groups
     include VimeoMe2::UserMethods::Likes
+    include VimeoMe2::UserMethods::Videos
 
     attr_reader :video, :user
 

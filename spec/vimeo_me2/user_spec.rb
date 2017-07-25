@@ -29,6 +29,41 @@ module VimeoMe2
       end
     end
 
+    context '#videos' do
+
+      before(:each) do
+        VCR.use_cassette("vimeo-authenticated-user") do
+          @is_pending = VCR.current_cassette.recording? && ENV['VIMEO_AUTHENTICATED_TOKEN'].nil?
+          @authenticated_user = User.new(ENV['VIMEO_AUTHENTICATED_TOKEN']) unless @is_pending
+        end
+      end
+
+      it 'returns user videos' do
+        if @is_pending
+          pending("ENV['VIMEO_AUTHENTICATED_TOKEN'] is not defined.")
+          raise
+        else
+          VCR.use_cassette("vimeo-user-videos") do
+            videos = @authenticated_user.view_all_videos
+            expect(@authenticated_user.client.last_request.code).to eq(200)
+          end
+        end
+      end
+
+      it 'supports query string params' do
+        if @is_pending
+          pending("ENV['VIMEO_AUTHENTICATED_TOKEN'] is not defined.")
+          raise
+        else
+          VCR.use_cassette("vimeo-user-videos-params") do
+            videos = @authenticated_user.view_all_videos(query: { per_page: 100 })
+            expect(videos['per_page']).to eq(100)
+          end
+        end
+      end
+
+    end
+
   end
 
 end

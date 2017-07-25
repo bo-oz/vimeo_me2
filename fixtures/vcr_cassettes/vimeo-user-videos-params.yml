@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.vimeo.com/me/videos?per_page=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 9f8f47fb3e32f1750f453c411d6751d3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/vnd.vimeo.video+json
+      Cache-Control:
+      - no-cache, max-age=315360000
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      Last-Modified:
+      - Tue, 25 Jul 2017 14:42:05 GMT
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '99'
+      X-Ratelimit-Reset:
+      - '2017-07-25T19:39:09+00:00'
+      Expires:
+      - Fri, 23 Jul 2027 19:24:09 GMT
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      Fastly-Debug-Digest:
+      - 1a5058db3282d500f8694dd97086fb267e4f5742d422d4cc114e8c4eaf0f1284
+      Content-Length:
+      - '165'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 25 Jul 2017 19:24:09 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2132-IAD, cache-yyz8325-YYZ
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1501010650.734477,VS0,VE46
+      Vary:
+      - Accept,Vimeo-Client-Id,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"total":0,"page":1,"per_page":100,"paging":{"next":null,"previous":null,"first":"/me/videos?per_page=100&page=1","last":"/me/videos?per_page=100&page=1"},"data":[]}'
+    http_version: 
+  recorded_at: Tue, 25 Jul 2017 19:24:13 GMT
+recorded_with: VCR 3.0.3
