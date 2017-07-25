@@ -4,6 +4,10 @@
 
 A very basic wrapper for the Vimeo API. OAuth2 is not included in the code. You can easily write your own OAuth2 workflow with a gem like [OAuth2](https://github.com/intridea/oauth2). All you need is a Vimeo access token and easily make calls to their API through this gem.
 
+A simple alternative method is to generate your own token, dedicated to your application, which can be clearly convinient in case of script use.
+So the procedure is to go in your app created on vimeo [https://developer.vimeo.com/apps/xxxxx#authentication](https://developer.vimeo.com/apps/xxxxxxx#authentication) and see the `Authentication` tab (next to the `Details` tab),
+at the end, your find `Generate an Access Token` , customize as you wish then send. Your token is baked and you are ready to use it.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,11 +26,11 @@ And then execute:
 This gem consists of two classes that can access respectively a user or a video object from Vimeo. Using the gem starts with obtaining an access token from [vimeo.com](https://developer.vimeo.com). When calling the classes, put in the access token and access the various methods.
 
 ### Making any call to Vimeo
-Use utility methods to make any call against Vimeo. You can see the full list of eindpoints in the Vimeo documentation on [vimeo.com](https://developer.vimeo.com).
+Use utility methods to make any call against Vimeo. You can see the full list of endpoints in the Vimeo documentation on [vimeo.com](https://developer.vimeo.com).
 
 ```ruby
 # Set-up the basis for making calls to Vimeo
-vimeo = VimeoMe2::VimeoObject.new('12345hjhsjdshasd')
+vimeo = VimeoMe2::VimeoObject.new('12345hjhsjdshasd') # '12345hjhsjdshasd' must be replace by a valid token
 
 # Make any get request, by providing only the API endpoint
 vimeo.get('/me')
