@@ -24,7 +24,6 @@ module VimeoMe2
     include VimeoMe2::UserMethods::Groups
     include VimeoMe2::UserMethods::Likes
     include VimeoMe2::UserMethods::Videos
-
     attr_reader :video, :user
 
     def initialize(token, user_id = nil)
