@@ -44,7 +44,7 @@ module VimeoMe2
           raise
         else
           VCR.use_cassette("vimeo-user-videos") do
-            videos = @authenticated_user.view_all_videos
+            videos = @authenticated_user.get_video_list
             expect(@authenticated_user.client.last_request.code).to eq(200)
           end
         end
@@ -56,7 +56,7 @@ module VimeoMe2
           raise
         else
           VCR.use_cassette("vimeo-user-videos-params") do
-            videos = @authenticated_user.view_all_videos(query: { per_page: 100 })
+            videos = @authenticated_user.get_video_list(query: { per_page: 100 })
             expect(videos['per_page']).to eq(100)
           end
         end
