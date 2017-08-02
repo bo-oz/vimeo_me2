@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.vimeo.com/me
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer 9f8f47fb3e32f1750f453c411d6751d3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/vnd.vimeo.user+json
+      Cache-Control:
+      - no-cache, max-age=315360000
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '93'
+      X-Ratelimit-Reset:
+      - '2017-07-25T15:10:40+00:00'
+      Expires:
+      - Fri, 23 Jul 2027 14:55:40 GMT
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      Fastly-Debug-Digest:
+      - 531aae54deb58da92694b00e6e57afc3f91eafa656f2a974be6d34f493c05e8b
+      Content-Length:
+      - '1686'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 25 Jul 2017 14:55:40 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2144-IAD, cache-yyz8324-YYZ
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1500994541.507434,VS0,VE48
+      Vary:
+      - Accept,Vimeo-Client-Id,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"uri":"/users/69209203","name":"Test User","link":"https://vimeo.com/user69209203","location":null,"bio":null,"created_time":"2017-07-25T14:42:05+00:00","account":"basic","pictures":null,"websites":[],"metadata":{"connections":{"activities":{"uri":"/users/69209203/activities","options":["GET"]},"albums":{"uri":"/users/69209203/albums","options":["GET"],"total":0},"appearances":{"uri":"/users/69209203/appearances","options":["GET"],"total":0},"categories":{"uri":"/users/69209203/categories","options":["GET"],"total":0},"channels":{"uri":"/users/69209203/channels","options":["GET"],"total":0},"feed":{"uri":"/users/69209203/feed","options":["GET"]},"followers":{"uri":"/users/69209203/followers","options":["GET"],"total":0},"following":{"uri":"/users/69209203/following","options":["GET"],"total":0},"groups":{"uri":"/users/69209203/groups","options":["GET"],"total":0},"likes":{"uri":"/users/69209203/likes","options":["GET"],"total":0},"moderated_channels":{"uri":"/users/69209203/channels?filter=moderated","options":["GET"],"total":0},"portfolios":{"uri":"/users/69209203/portfolios","options":["GET"],"total":0},"videos":{"uri":"/users/69209203/videos","options":["GET"],"total":0},"watchlater":{"uri":"/users/69209203/watchlater","options":["GET"],"total":0},"shared":{"uri":"/users/69209203/shared/videos","options":["GET"],"total":0},"pictures":{"uri":"/users/69209203/pictures","options":["GET","POST"],"total":0},"watched_videos":{"uri":"/me/watched/videos","options":["GET"],"total":0}}},"preferences":{"videos":{"privacy":"anybody"}},"content_filter":["language","drugs","violence","nudity","safe","unrated"],"resource_key":"ce28fbb9519cf84f3dd87b4a78de58241267c18b"}'
+    http_version: 
+  recorded_at: Tue, 25 Jul 2017 14:55:42 GMT
+recorded_with: VCR 3.0.3

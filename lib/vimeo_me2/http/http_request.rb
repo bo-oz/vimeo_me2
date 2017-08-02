@@ -9,7 +9,7 @@ module VimeoMe2
       include VimeoMe2::Http::OAuth::Verify
 
       attr_reader :last_request
-      attr_accessor :body, :headers
+      attr_accessor :body, :headers, :query, :debug
 
       def initialize(token=nil)
         @token = token
@@ -17,7 +17,7 @@ module VimeoMe2
       end
 
       def make_http_request(method, endpoint, allowed_status=200)
-        puts "#{method.upcase} #{prefix_endpoint(endpoint)} #{allowed_status}"
+        log "#{method.upcase} #{prefix_endpoint(endpoint)} #{allowed_status}"
         call = HTTParty.public_send(method, prefix_endpoint(endpoint), http_request)
         @last_request = call
         validate_response!(call, allowed_status)
@@ -38,6 +38,14 @@ module VimeoMe2
         @headers.merge!(additional) if additional.instance_of? Hash
       end
 
+      def add_query(key, value)
+        @query[key] = value
+      end
+
+      def add_queries(additional)
+        @query.merge!(additional) if additional.instance_of? Hash
+      end
+
       private
 
         def request_uri uri=nil
@@ -47,6 +55,7 @@ module VimeoMe2
         def reset_request
           @headers = {}
           @body = {}
+          @query = {}
           set_auth_header(@token) unless @token.nil?
         end
 
@@ -55,7 +64,7 @@ module VimeoMe2
         end
 
         def http_request
-          return {headers:@headers, body:@body}
+          return {headers:@headers, body:@body, query:@query}
         end
 
         def prefix_endpoint endpoint
@@ -65,8 +74,8 @@ module VimeoMe2
         # Raises an exception if the response does contain a +stat+ different from "ok"
         def validate_response!(call, status)
           raise "empty call" unless call
-          puts "#{call.code} #{call.msg}"
-          puts ""
+          log "#{call.code} #{call.msg}"
+          log ""
           status = [status] unless status.is_a? Array
           unless status.include? call.code
             if call.response.body.nil? || call.response.body.empty?
@@ -76,6 +85,10 @@ module VimeoMe2
               raise RequestFailed.new(call.code, call.msg, body['error'])
             end
           end
+        end
+
+        def log(str)
+          puts str if @debug
         end
     end
   end

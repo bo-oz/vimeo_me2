@@ -22,9 +22,10 @@ module VimeoMe2
         request
       end
 
-      def request(url=@base_uri, method:'get', code: 200, headers:nil, body:nil)
+      def request(url=@base_uri, method:'get', code: 200, headers:nil, body:nil, query:nil)
         @client.body = body
         @client.add_headers(headers)
+        @client.add_queries(query)
         @client.make_http_request(method, url, code)
       end
 
