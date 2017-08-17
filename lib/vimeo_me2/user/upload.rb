@@ -15,6 +15,19 @@ module VimeoMe2
         return uploaded_video
       end
 
+      # Upload a video to the authenticated account
+      #   The video is pulled automatically
+      #
+      # @param [String] name video name
+      # @param [String] link a link to a video on the Internet that is accessible to Vimeo’s upload server
+      def pull_upload name, link
+        res = start_pull_upload link
+        uploaded_video = res['uri']
+        change_name uploaded_video, name
+
+        return uploaded_video
+      end
+
       #private
 
         def handle_upload
@@ -23,9 +36,11 @@ module VimeoMe2
           end_upload
         end
 
-        def change_name uploaded_video
+        def change_name uploaded_video, name = nil
+          name = @video.original_filename if name.nil?
+
           video = VimeoMe2::Video.new(@token, uploaded_video)
-          video.name = @video.original_filename
+          video.name = name
           video.update
         end
 
@@ -33,6 +48,12 @@ module VimeoMe2
         def get_upload_ticket
           body = {:type => "streaming"}
           post('/videos', body:body, code:201)
+        end
+
+        # start the pull upload
+        def start_pull_upload link
+          body = {type: 'pull', link: link}
+          post('/videos', body:body)
         end
 
         # start the upload
