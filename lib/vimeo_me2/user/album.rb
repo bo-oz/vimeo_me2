@@ -53,7 +53,7 @@ module VimeoMe2
         body = {}
         body['videos'] = videos if videos.is_a? String
         body['videos'] = videos.join(',') if videos.is_a? Array
-        put("/albums/#{album_id}", body:body )
+        put("/albums/#{album_id}/videos", body:body, code: 201)
       end
 
       # Add single video to an album
