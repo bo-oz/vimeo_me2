@@ -114,7 +114,7 @@ The second method is using the Pull Upload method that's offered through the Vim
 # in your OAuth2 token
 vimeo_client = VimeoMe2::User.new('12345hjhsjdshasd')
 vimeo_client.pull_upload 'new name of the video', 'http://www.somelocation.com/video_content.mp4'
-``
+```
 
 ### Accessing a video
 Take a look at the files under /lib/vimeo_me2/video/ for available methods.
