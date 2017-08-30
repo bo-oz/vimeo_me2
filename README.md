@@ -78,7 +78,8 @@ vimeo_user.check_if_liked 1234455 #returns false
 
 ```
 ### Uploading a video
-At this moment there are two ways of uploading video's to Vimeo. The first one is using an upload form through Rails and pushing the uploaded ActionDispatch::Http::UploadedFile object to Vimeo:
+#### Utilizing an upload form in Rails
+At this moment there are two ways of uploading video's to Vimeo. The first one works only in Rails and uploads an ActionDispatch::Http::UploadedFile object to Vimeo:
 
 ```ruby
 # Set-up a model like this for instance:
@@ -105,6 +106,7 @@ class Videofile < ActiveRecord::Base
 end
 
 ```
+#### Utilizing the Vimeo Pull Request
 The second method is using the Pull Upload method that's offered through the Vimeo Api. This method basically fetches video content from any accessible URL and uploads it to Vimeo
 
 ```ruby
