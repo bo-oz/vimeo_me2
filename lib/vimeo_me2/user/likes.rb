@@ -23,7 +23,7 @@ module VimeoMe2
 
       # Unlike a video
       # @param [String] video_id The ID of the Video.
-      def unlinke_video video_id
+      def unlike_video video_id
         delete("/likes/#{video_id}", code: 204)
       end
     end
