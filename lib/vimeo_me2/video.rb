@@ -34,6 +34,10 @@ module VimeoMe2
       @video['privacy'] ||= {}
     end
 
+    def password= password
+      @video['password'] = password
+    end
+
     def privacy= privacy_options
       privacy.merge! privacy_options
     end
