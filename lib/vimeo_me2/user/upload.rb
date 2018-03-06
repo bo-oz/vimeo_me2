@@ -22,7 +22,7 @@ module VimeoMe2
         body = {
           type: 'pull',
           link: link,
-          name: name || @video.original_filename
+          name: name.present? ? name : @video.original_filename
         }.merge!(options)
 
         post '/videos', body: body
