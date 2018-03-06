@@ -30,6 +30,14 @@ module VimeoMe2
       @video['name']
     end
 
+    def privacy
+      @video['privacy'] ||= {}
+    end
+
+    def privacy= privacy_options
+      privacy.merge! privacy_options
+    def
+
     def update
       body = @video
       patch(nil, body:body, code:[200,204])
