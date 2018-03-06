@@ -25,9 +25,7 @@ module VimeoMe2
           name: name || @video.original_filename
         }.merge!(options)
 
-        res = post '/videos', body: body
-
-        return res['uri']
+        post '/videos', body: body        
       end
 
       # private
