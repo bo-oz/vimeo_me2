@@ -36,7 +36,7 @@ module VimeoMe2
 
     def privacy= privacy_options
       privacy.merge! privacy_options
-    def
+    end
 
     def update
       body = @video
