@@ -20,7 +20,7 @@ module VimeoMe2
           end
 
           def verify_oauth_token
-            req = make_http_request('get','/oauth/verify')
+            req = make_http_request('get','/oauth/verify?fields=scope')
             return req['scope'].split
           end
       end
