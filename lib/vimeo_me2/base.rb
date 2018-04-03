@@ -42,12 +42,13 @@ module VimeoMe2
   end
 
   class RequestFailed < StandardError
-    attr_reader :status, :error, :message
+    attr_reader :status, :error, :message, :ratelimit
 
-    def initialize(_error=nil, _status=nil, _message=nil)
+    def initialize(_error=nil, _status=nil, _message=nil, _ratelimit=nil)
       @error = _error || 422
       @status = _status || :unprocessable_entity
       @message = _message || 'Something went wrong'
+      @ratelimit = _ratelimit
     end
   end
 end

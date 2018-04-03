@@ -8,7 +8,7 @@ module VimeoMe2
     class HttpRequest
       include VimeoMe2::Http::OAuth::Verify
 
-      attr_reader :last_request
+      attr_reader :last_request, :ratelimit
       attr_accessor :body, :headers, :query, :debug
 
       def initialize(token=nil)
@@ -20,6 +20,11 @@ module VimeoMe2
         log "#{method.upcase} #{prefix_endpoint(endpoint)} #{allowed_status}"
         call = HTTParty.public_send(method, prefix_endpoint(endpoint), http_request)
         @last_request = call
+        @ratelimit = {
+          'limit' => call.headers['x-ratelimit-limit'],
+          'remaining' => call.headers['x-ratelimit-remaining'],
+          'reset' => call.headers['x-ratelimit-reset']
+        }
         validate_response!(call, allowed_status)
         reset_request
         return nil if call.response.body.nil?
@@ -84,7 +89,7 @@ module VimeoMe2
               raise RequestFailed.new(call.code, call.msg)
             else
               body = JSON.parse(call.response.body)
-              raise RequestFailed.new(call.code, call.msg, body['error'])
+              raise RequestFailed.new(call.code, call.msg, body['error'], @ratelimit)
             end
           end
         end
