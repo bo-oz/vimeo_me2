@@ -50,7 +50,7 @@ module VimeoMe2
 
       # start the upload
       def start_upload
-        headers = {'Content-Type': @video.content_type}
+        headers = {'Content-Type' => @video.content_type}
         headers['Content-Length'] = @video.size.to_s
         @video.rewind
         body = @video.read(@video.size).to_s
