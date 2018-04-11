@@ -23,6 +23,8 @@ module VimeoMe2
       end
 
       def request(url=@base_uri, method:'get', code: 200, headers:nil, body:nil, query:nil)
+        # Moved responsibility to reset the request to the beginning of a new call
+        @client.reset_request
         @client.body = body
         # Vimeo API version 3.4 contains some breaking changes to things like upload
         # The endpoints implemented by VimeoMe2 all seem to work up to at least version 3.2

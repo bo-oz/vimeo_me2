@@ -8,7 +8,7 @@ module VimeoMe2
     class HttpRequest
       include VimeoMe2::Http::OAuth::Verify
 
-      attr_reader :last_request, :ratelimit
+      attr_reader :method, :end_point, :last_request, :ratelimit, :allowed_status
       attr_accessor :body, :headers, :query, :debug
 
       def initialize(token=nil)
@@ -16,19 +16,26 @@ module VimeoMe2
         reset_request
       end
 
-      def make_http_request(method, endpoint, allowed_status=200)
-        log "#{method.upcase} #{prefix_endpoint(endpoint)} #{allowed_status}"
-        call = HTTParty.public_send(method, prefix_endpoint(endpoint), http_request)
+      def make_http_request(method, end_point, allowed_status=200)
+        @method = method
+        @end_point = end_point
+        @allowed_status = allowed_status
+        log "#{method.upcase} #{prefix_endpoint(@end_point)} #{allowed_status}"
+        call = HTTParty.public_send(@method, prefix_endpoint(@end_point), http_request)
         @last_request = call
         @ratelimit = {
           'limit' => call.headers['x-ratelimit-limit'],
           'remaining' => call.headers['x-ratelimit-remaining'],
           'reset' => call.headers['x-ratelimit-reset']
         }
-        validate_response!(call, allowed_status)
-        reset_request
+        validate_response!(call, @allowed_status)
         return nil if call.response.body.nil?
         call.response.body.empty? ? call.response.body : JSON.parse(call.response.body)
+      end
+
+      # convenience method to replay the latest request
+      def repeat_http_request
+        make_http_request(@method, @end_point, @allowed_status)
       end
 
       def set_token token
@@ -51,17 +58,17 @@ module VimeoMe2
         @query.merge!(additional) if additional.instance_of? Hash
       end
 
+      def reset_request
+        @headers = { 'Content-Type' => 'application/json' }
+        @body = {}
+        @query = {}
+        set_auth_header(@token) unless @token.nil?
+      end
+
       private
 
         def request_uri uri=nil
           "#{@base_uri}#{uri}"
-        end
-
-        def reset_request
-          @headers = { 'Content-Type' => 'application/json' }
-          @body = {}
-          @query = {}
-          set_auth_header(@token) unless @token.nil?
         end
 
         def set_auth_header token
