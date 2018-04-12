@@ -20,17 +20,12 @@ module VimeoMe2
         @method = method
         @end_point = end_point
         @allowed_status = allowed_status
-        log "#{method.upcase} #{prefix_endpoint(@end_point)} #{allowed_status}"
-        call = HTTParty.public_send(@method, prefix_endpoint(@end_point), http_request)
-        @last_request = call
-        @ratelimit = {
-          'limit' => call.headers['x-ratelimit-limit'],
-          'remaining' => call.headers['x-ratelimit-remaining'],
-          'reset' => call.headers['x-ratelimit-reset']
-        }
-        validate_response!(call, @allowed_status)
-        return nil if call.response.body.nil?
-        call.response.body.empty? ? call.response.body : JSON.parse(call.response.body)
+        print_request_to_console
+        @last_request = HTTParty.public_send(@method, prefix_endpoint(@end_point), http_request)
+        get_rate_limit_information
+        validate_response!(@last_request, @allowed_status)
+        return nil if @last_request.response.body.nil?
+        @last_request.response.body.empty? ? @last_request.response.body : JSON.parse(@last_request.response.body)
       end
 
       # convenience method to replay the latest request
@@ -59,13 +54,25 @@ module VimeoMe2
       end
 
       def reset_request
-        @headers = { 'Content-Type' => 'application/json' }
+        @headers = {}
         @body = {}
         @query = {}
         set_auth_header(@token) unless @token.nil?
       end
 
       private
+
+        def get_rate_limit_information
+          @ratelimit = {
+            'limit' => @last_request.headers['x-ratelimit-limit'],
+            'remaining' => @last_request.headers['x-ratelimit-remaining'],
+            'reset' => @last_request.headers['x-ratelimit-reset']
+          }
+        end
+
+        def print_request_to_console
+          log("#{@method.upcase} #{prefix_endpoint(@end_point)} #{@allowed_status}")
+        end
 
         def request_uri uri=nil
           "#{@base_uri}#{uri}"
@@ -76,15 +83,16 @@ module VimeoMe2
         end
 
         def http_request
-          return {headers:@headers, body:formatted_body, query:@query}
+          return {headers:request_headers, body:formatted_body, query:@query}
         end
 
         def formatted_body
-          json_header? ? @body.to_json : @body
+          @body.is_a?(Hash) ? @body.to_json : @body
         end
 
-        def json_header?
-          @headers['Content-Type'] == 'application/json'
+        def request_headers
+          add_header('Content-Type', 'application/json') if @body.is_a?(Hash)
+          @headers
         end
 
         def prefix_endpoint endpoint
