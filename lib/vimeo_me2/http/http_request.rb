@@ -76,9 +76,9 @@ module VimeoMe2
         end
 
         def http_request
-          @body = @body.to_json if @headers['Content-Type'] == 'application/json'
+          body = @body.to_json if @headers['Content-Type'] == 'application/json'
 
-          return {headers:@headers, body:@body, query:@query}
+          return {headers:@headers, body:body, query:@query}
         end
 
         def prefix_endpoint endpoint
