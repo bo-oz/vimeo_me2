@@ -4,9 +4,9 @@
 
 A very basic wrapper for the Vimeo API. OAuth2 is not included in the code. You can easily write your own OAuth2 workflow with a gem like [OAuth2](https://github.com/intridea/oauth2). All you need is a Vimeo access token and easily make calls to their API through this gem.
 
-A simple alternative method is to generate your own token, dedicated to your application, which can be clearly convinient in case of script use.
-So the procedure is to go in your app created on vimeo [https://developer.vimeo.com/apps/xxxxx#authentication](https://developer.vimeo.com/apps/xxxxxxx#authentication) and see the `Authentication` tab (next to the `Details` tab),
-at the end, your find `Generate an Access Token` , customize as you wish then send. Your token is baked and you are ready to use it.
+A simple alternative method is to generate your own token, dedicated to your application, which can be clearly convenient in case of script use.
+The procedure is to go in your app created on vimeo [https://developer.vimeo.com/](https://developer.vimeo.com/apps/xxxxxxx#authentication) and find the `Authentication` tab (it's next to the `Details` tab),
+at the end, you'll find `Generate an Access Token`, customize as you wish, then click `send`. Your token is created and you are ready to use it.
 
 ## Installation
 
