@@ -76,9 +76,11 @@ module VimeoMe2
         end
 
         def http_request
-          body = json_header? ? @body.to_json : @body
+          return {headers:@headers, body:formatted_body, query:@query}
+        end
 
-          return {headers:@headers, body:body, query:@query}
+        def formatted_body
+          json_header? ? @body.to_json : @body
         end
 
         def json_header?
