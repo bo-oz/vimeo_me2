@@ -163,6 +163,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/bo-oz/vimeo_me2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+## Changelog
+
+### 1.2.0
+* Updated the upload code to use the new 3.4 spec for uploading: https://developer.vimeo.com/api/upload/videos#resumable-guide
+* Did some refactoring to the HTTP Request class
+
 
 ## License
 
