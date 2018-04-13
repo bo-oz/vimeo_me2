@@ -42,7 +42,7 @@ module VimeoMe2
       end
 
       def add_headers(additional)
-        @headers.merge!(additional) if additional.instance_of? Hash
+        @headers.merge!(additional) if additional.is_a? Hash
       end
 
       def add_query(key, value)
@@ -50,7 +50,7 @@ module VimeoMe2
       end
 
       def add_queries(additional)
-        @query.merge!(additional) if additional.instance_of? Hash
+        @query.merge!(additional) if additional.is_a? Hash
       end
 
       def reset_request
