@@ -32,8 +32,13 @@ module VimeoMe2
 
         def change_name name = nil
           video = VimeoMe2::Video.new(@token, @ticket['uri'])
-          video.name = name || @video.original_filename
+          video.name = name || get_file_name
           video.update
+        end
+
+        def get_file_name
+          return @video.path if @video.is_a? File
+          return @video.original_filename
         end
 
         # 3.4 Update
