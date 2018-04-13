@@ -111,7 +111,7 @@ You can also upload a Video File through plain ruby like this:
 
 ```ruby
 # Example in Plain Ruby
-video = File.open('video.mnp4')
+video = File.open('video.mp4')
 vimeo_client = VimeoMe2::User.new('12345hjhsjdshasd')
 vimeo_client.upload_video(video)
 
