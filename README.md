@@ -97,7 +97,8 @@ class Videofile < ActiveRecord::Base
     # upload the video by passing the ActionDispatch::Http::UploadedFile
     # to the upload_video() method. The data_url in this model, stores
     # the location of the uploaded video on Vimeo.
-    self.data_url = vimeo_client.upload_video(self.video_file)
+    video = vimeo_client.upload_video(self.video_file)
+    self.data_url = video['uri']
     return true
   rescue VimeoMe2::RequestFailed => e
     errors.add(:video_file, e.message)
@@ -178,6 +179,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/bo-oz/
 
 ### 1.2.0
 * Updated the upload code to use the new 3.4 spec for uploading: https://developer.vimeo.com/api/upload/videos#resumable-guide
+  * The result of an upload is no longer the video URL, but the entire video JSON response
 * Did some refactoring to the HTTP Request class
 
 
