@@ -17,10 +17,6 @@ module VimeoMe2
       end
     end
 
-    def api_version
-      @api_version ? @api_version : '3.4'
-    end
-
     private
       def get_object
         request
