@@ -24,12 +24,11 @@ module VimeoMe2
     include VimeoMe2::UserMethods::Groups
     include VimeoMe2::UserMethods::Likes
     include VimeoMe2::UserMethods::Videos
-    attr_reader :video, :user, :api_version
+    attr_reader :video, :user
 
-    def initialize(token, user_id = nil, api_version = nil)
+    def initialize(token, user_id = nil, api_version = "3.4")
       @base_uri = user_id ? "/users/#{user_id}" : "/me"
-      @api_version = api_version
-      @user = super(token)
+      @user = super(token, api_version)
     end
   end
 end

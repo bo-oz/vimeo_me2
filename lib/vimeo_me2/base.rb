@@ -3,8 +3,10 @@ module VimeoMe2
   class VimeoObject
 
     attr_reader :client
+    attr_accessor :api_version
 
-    def initialize token
+    def initialize token, api_version = "3.4"
+      @api_version = api_version
       @token = token
       @client = VimeoMe2::Http::HttpRequest.new(token)
       get_object
@@ -15,10 +17,6 @@ module VimeoMe2
         params[:method] = "#{method}"
         request request_uri(url), params
       end
-    end
-
-    def api_version
-      @api_version ? @api_version : '3.4'
     end
 
     private
@@ -33,7 +31,7 @@ module VimeoMe2
         # Vimeo API version 3.4 contains some breaking changes to things like upload
         # The endpoints implemented by VimeoMe2 all seem to work up to at least version 3.2
         # https://developer.vimeo.com/api/changelog#34
-        @client.add_header('Accept', "application/vnd.vimeo.*+json;version=#{api_version}")
+        @client.add_header('Accept', "application/vnd.vimeo.*+json;version=#{@api_version}")
         @client.add_header('User-Agent', 'Vimeo_Me2')
         @client.add_headers(headers)
         @client.add_queries(query)
