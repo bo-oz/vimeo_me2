@@ -105,6 +105,7 @@ module VimeoMe2
           log "#{call.code} #{call.msg}"
           log ""
           status = [status] unless status.is_a? Array
+          return true
           unless status.include? call.code
             if call.response.body.nil? || call.response.body.empty?
               raise RequestFailed.new(call.code, call.msg)
