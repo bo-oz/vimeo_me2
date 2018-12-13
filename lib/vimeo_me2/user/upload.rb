@@ -49,7 +49,7 @@ module VimeoMe2
 
         # start the upload
         def start_upload
-          headers = {'Content-Type': 'application/offset+octet-stream'}
+          headers = {'Content-Type' => 'application/offset+octet-stream'}
           headers['Tus-Resumable'] = '1.0.0'
           headers['Upload-Offset'] = '0'
           @video.rewind
