@@ -5,11 +5,11 @@ module VimeoMe2
       # Upload a video object to the authenticated account
       #
       # @param [File] video A File that contains a valid video format
-      def upload_video video
+      def upload_video video, name: nil
         @video = video
         @ticket = create_video
         start_upload
-        video = change_name_and_get_video
+        video = change_name_and_get_video(name)
         return video
       end
 
