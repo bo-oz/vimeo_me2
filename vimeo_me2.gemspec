@@ -6,7 +6,7 @@ require 'vimeo_me2/version'
 Gem::Specification.new do |spec|
   spec.name          = "vimeo_me2"
   spec.version       = VimeoMe2::VERSION
-  spec.authors       = ["Boris"]
+  spec.authors       = ["Bo-oz"]
   spec.email         = ["boristoet80@gmail.com"]
 
   spec.summary       = "Temp"
