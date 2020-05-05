@@ -4,6 +4,7 @@ require "user/album"
 require "user/category"
 require "user/channel"
 require "user/feed"
+require "user/folder"
 require "user/followers"
 require "user/following"
 require "user/groups"
@@ -19,6 +20,7 @@ module VimeoMe2
     include VimeoMe2::UserMethods::Category
     include VimeoMe2::UserMethods::Channel
     include VimeoMe2::UserMethods::Feed
+    include VimeoMe2::UserMethods::Folder
     include VimeoMe2::UserMethods::Followers
     include VimeoMe2::UserMethods::Following
     include VimeoMe2::UserMethods::Groups
