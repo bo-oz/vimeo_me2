@@ -36,5 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr", "~> 3.0.3"
   spec.add_development_dependency "webmock", "~> 3.0.1"
 
-  spec.add_runtime_dependency "httparty","~> 0.17.0"
+  spec.add_runtime_dependency "httparty","~> 0.18.0"
 end
