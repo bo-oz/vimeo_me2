@@ -5,6 +5,7 @@ require "video/comment"
 module VimeoMe2
   class Video < VimeoMe2::VimeoObject
     include VimeoMe2::VideoMethods::Comment
+    include VimeoMe2::VideoMethods::Preset
 
     attr_reader :video, :video_id
 
