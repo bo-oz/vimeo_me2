@@ -27,6 +27,11 @@ module VimeoMe2
         post '/videos', body: body, code: 201
       end
 
+      #check video progrsess
+      def video_progress
+        @client.last_request.headers['upload-offset'].to_i
+      end
+
       private
 
         def change_name_and_get_video name = nil
