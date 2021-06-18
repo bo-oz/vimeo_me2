@@ -2,12 +2,15 @@ module VimeoMe2
   module UserMethods
     module Upload
 
-      # Upload a video object to the authenticated account
-      #
-      # @param [File] video A File that contains a valid video format
-      def upload_video video, name: nil
+      
+      def create_video video
         @video = video
         @ticket = create_video
+        return @ticket
+      end
+      # Upload a video object to the authenticated account
+      # @param [File] video A File that contains a valid video format
+      def upload_video name: nil
         start_upload
         video = change_name_and_get_video(name)
         return video
@@ -25,11 +28,6 @@ module VimeoMe2
         }.merge!(options)
 
         post '/videos', body: body, code: 201
-      end
-
-      #check video progrsess
-      def video_progress
-        @client.last_request.headers['upload-offset'].to_i
       end
 
       private
