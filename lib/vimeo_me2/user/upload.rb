@@ -3,7 +3,7 @@ module VimeoMe2
     module Upload
 
       
-      def create_video video
+      def create video
         @video = video
         @ticket = create_video
         return @ticket
