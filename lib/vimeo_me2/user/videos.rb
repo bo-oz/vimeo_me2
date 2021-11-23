@@ -5,7 +5,7 @@ module VimeoMe2
       # Get a list of albums for the current user.
       # @param [Object] Arguments passed to http_request (optional keys include: headers, query)
       def get_video_list(**args)
-        get("/videos", args)
+        get("/videos", **args)
       end
 
       # Get one album by it's ID

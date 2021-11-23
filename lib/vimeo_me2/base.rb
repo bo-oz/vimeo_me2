@@ -15,7 +15,7 @@ module VimeoMe2
     ["get", "post", "delete", "put","patch"].each do |method|
       define_method(method) do |url, **params|
         params[:method] = "#{method}"
-        request request_uri(url), params
+        request request_uri(url), **params
       end
     end
 
