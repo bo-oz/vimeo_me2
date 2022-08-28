@@ -99,10 +99,10 @@ class Videofile < ActiveRecord::Base
     # the location of the uploaded video on Vimeo.
     video = vimeo_client.upload_video(video_file)
     self.data_url = video['uri']
-    return true
+    true
   rescue VimeoMe2::RequestFailed => e
     errors.add(:video_file, e.message)
-    return false
+    false
   end
 
 end
