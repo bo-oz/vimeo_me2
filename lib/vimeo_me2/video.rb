@@ -1,10 +1,12 @@
 $:.unshift(File.dirname(__FILE__))
 require "http/http_request"
 require "video/comment"
+require "video/preset"
 
 module VimeoMe2
   class Video < VimeoMe2::VimeoObject
     include VimeoMe2::VideoMethods::Comment
+    include VimeoMe2::VideoMethods::Preset
 
     attr_reader :video, :video_id
 
@@ -29,7 +31,15 @@ module VimeoMe2
     def name
       @video['name']
     end
+    
+    def description= description
+      @video['description'] = description
+    end
 
+    def description
+      @video['description']
+    end
+    
     def privacy
       @video['privacy'] ||= {}
     end

@@ -1,4 +1,5 @@
 require "spec_helper"
+require 'vimeo_me2'
 
 describe VimeoMe2 do
   it "has a version number" do
