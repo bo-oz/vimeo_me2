@@ -12,7 +12,7 @@ module VimeoMe2
       get_object
     end
 
-    ["get", "post", "delete", "put","patch"].each do |method|
+    ["get", "post", "delete", "put","patch", "head"].each do |method|
       define_method(method) do |url, **params|
         params[:method] = "#{method}"
         request request_uri(url), **params
